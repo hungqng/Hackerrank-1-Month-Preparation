@@ -21,11 +21,11 @@ def bomberMan(n, grid):
         return grid
     
     if n % 2 == 0:
-        return ['0' * c for i in range(r)]
+        return ['O' * c for i in range(r)]
     
     n //= 2
     for q in range((n + 1) % 2 + 1):
-        newgrid = [['0'] * c for i in range(r)]
+        newgrid = [['O'] * c for i in range(r)]
         
         def set(x, y):
             if 0 <= x < r and 0 <= y < c:
@@ -36,9 +36,9 @@ def bomberMan(n, grid):
         
         for x in range(r):
             for y in range(c):
-                if grid[x][y] == '0':
+                if grid[x][y] == 'O':
                     for i, j in zip(xi, yi):
-                        set(x + i, y + i)
+                        set(x + i, y + j)
         
         grid = newgrid
         
